@@ -144,6 +144,31 @@ SELECT DISTINCT title FROM books WHERE subject_id = 4;
 	* Author's first name
 	* Author's last name
 	* Book subject
+```
+SELECT b.title, a.first_name, a.last_name, s.subject
+FROM books b JOIN authors a ON b.author_id = a.id
+JOIN subjects s ON b.subject_id = s.id;
+            title            |    first_name    |  last_name   |     subject
+-----------------------------+------------------+--------------+------------------
+ Practical PostgreSQL        | John             | Worsley      | Computers
+ Franklin in the Dark        | Paulette         | Bourgeois    | Children's Books
+ The Velveteen Rabbit        | Margery Williams | Bianco       | Classics
+ Little Women                | Louisa May       | Alcott       | Drama
+ The Shining                 | Stephen          | King         | Horror
+ Dune                        | Frank            | Herbert      | Science Fiction
+ Dynamic Anatomy             | Burne            | Hogarth      | Arts
+ Goodnight Moon              | Margaret Wise    | Brown        | Children's Books
+ The Tell-Tale Heart         | Edgar Allen      | Poe          | Horror
+ Programming Python          | Mark             | Lutz         | Computers
+ Learning Python             | Mark             | Lutz         | Computers
+ Perl Cookbook               | Tom              | Christiansen | Computers
+ 2001: A Space Odyssey       | Arthur C.        | Clarke       | Science Fiction
+ The Cat in the Hat          | Theodor Seuss    | Geisel       | Children's Books
+ Bartholomew and the Oobleck | Theodor Seuss    | Geisel       | Children's Books
+(15 rows)
+```
+
+
 8. Find all books that are listed in the stock table
 	* Sort them by retail price (most expensive first)
 	* Display ONLY: title and price
